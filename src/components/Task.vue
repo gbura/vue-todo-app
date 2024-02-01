@@ -13,7 +13,13 @@
 			<!-- task lists -->
 			<div class="taskItems">
 				<ul>
-					<task-item :task="task" v-for="task in tasks" :key="task.id" @complete-task="completeTask(task)"> </task-item>
+					<task-item
+						:task="task"
+						v-for="task in tasks"
+						:key="task.id"
+						@complete-task="completeTask(task)"
+						@delete-task="$emit('delete-task', task.id)">
+					</task-item>
 				</ul>
 			</div>
 			<!-- buttons -->
@@ -48,15 +54,23 @@ export default {
 	},
 	methods: {
 		addTask() {
-			this.tasks.push({
-				id: this.tasks.length + 1,
-				title: this.newTask,
-				completed: false,
-			})
-			this.newTask = ''
+			if (this.validate()) {
+				this.tasks.push({
+					id: this.tasks.length + 1,
+					title: this.newTask,
+					completed: false,
+				})
+				this.newTask = ''
+			}
 		},
 		completeTask(task) {
 			task.completed = !task.completed
+		},
+		validate() {
+			if (this.newTask === '') {
+				return false
+			}
+			return true
 		},
 	},
 }
