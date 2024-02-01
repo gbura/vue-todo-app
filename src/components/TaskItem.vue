@@ -1,7 +1,7 @@
 <template>
 	<li>
 		<button @click="$emit('complete-task')" :class="completeTask">{{ task.title }}</button>
-        <!-- do poprawy, bo nie działa -->
+		<!-- do poprawy, bo nie działa -->
 		<button @click="$emit('delete-task', task.id)"><i class="far fa-trash-alt"></i></button>
 	</li>
 </template>
