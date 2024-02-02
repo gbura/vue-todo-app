@@ -6,12 +6,7 @@
 
 <script>
 export default {
-	inject: ['tasks'],
-	computed: {
-		isPending() {
-			return this.tasks.filter(task => !task.completed).length
-		},
-	},
+	props: ['isPending'],
 }
 </script>
 

@@ -11,7 +11,7 @@
 			<clear-buttons
 				@clear-completed="$emit('clear-completed')"
 				@clear-all-tasks="$emit('clear-all-tasks')"></clear-buttons>
-			<pending-tasks></pending-tasks>
+			<pending-tasks :isPending="isPending"></pending-tasks>
 		</div>
 	</div>
 </template>
@@ -30,6 +30,11 @@ export default {
 	methods: {
 		completeTask(task) {
 			task.completed = !task.completed
+		},
+	},
+	computed: {
+		isPending() {
+			return this.tasks.filter(task => !task.completed).length
 		},
 	},
 }
