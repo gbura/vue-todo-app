@@ -13,13 +13,7 @@
 			<!-- task lists -->
 			<div class="taskItems">
 				<ul>
-					<task-item
-						:task="task"
-						v-for="task in tasks"
-						:key="task.id"
-						@complete-task="completeTask(task)"
-						@delete-task="$emit('delete-task', task.id)">
-					</task-item>
+					<task-item :task="task" v-for="task in tasks" :key="task.id" @complete-task="completeTask(task)"> </task-item>
 				</ul>
 			</div>
 			<!-- buttons -->
@@ -39,9 +33,9 @@
 import TaskItem from './TaskItem.vue'
 
 export default {
-	name: 'Task',
 	components: { TaskItem },
 	props: ['tasks'],
+	emits: ['clear-completed', 'clear-all-tasks'],
 	data() {
 		return {
 			newTask: '',

@@ -1,10 +1,6 @@
 <template>
 	<div id="app">
-		<task
-			:tasks="tasks"
-			@clear-all-tasks="clearAllTasks"
-			@clear-completed="clearCompleted"
-			@delete-task="deleteTask"></task>
+		<task :tasks="tasks" @clear-all-tasks="clearAllTasks" @clear-completed="clearCompleted"></task>
 	</div>
 </template>
 
@@ -12,9 +8,13 @@
 import Task from './components/Task.vue'
 
 export default {
-	name: 'App',
 	components: {
 		Task,
+	},
+	provide() {
+		return {
+			deleteTask: this.deleteTask,
+		}
 	},
 	data() {
 		return {
