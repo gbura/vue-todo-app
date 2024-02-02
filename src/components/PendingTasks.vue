@@ -1,12 +1,12 @@
 <template>
 	<div class="pending-tasks">
-		<span>Pending Tasks: {{ isPending }}</span>
+		<span>Pending Tasks: {{ pendingTasks }}</span>
 	</div>
 </template>
 
 <script>
 export default {
-	props: ['isPending'],
+	props: ['pendingTasks'],
 }
 </script>
 
