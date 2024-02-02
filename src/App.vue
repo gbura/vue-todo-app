@@ -8,12 +8,11 @@
 import Task from './components/Task.vue'
 
 export default {
-	components: {
-		Task,
-	},
+	components: { Task },
 	provide() {
 		return {
 			deleteTask: this.deleteTask,
+			tasks: this.tasks,
 		}
 	},
 	data() {
@@ -34,3 +33,32 @@ export default {
 	},
 }
 </script>
+
+<style>
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+	font: 15px/1.4 'Poppins', sans-serif;
+	background: #4ec5c1;
+	color: #333;
+}
+
+#app {
+	padding: 60px 0;
+}
+
+button {
+	cursor: pointer;
+	font: 15px/1.4 'Poppins', sans-serif;
+	color: #555;
+	transition: all 0.3s linear;
+}
+
+button:focus {
+	outline: none;
+}
+</style>
