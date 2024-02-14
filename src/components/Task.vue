@@ -1,17 +1,15 @@
 <template>
 	<div class="container">
 		<div class="task">
-			<the-header></the-header>
-			<the-form></the-form>
+			<the-header>To Do App</the-header>
+			<TheForm />
 			<div class="task-items">
 				<ul>
-					<task-item :task="task" v-for="task in tasks" :key="task.id" @complete-task="completeTask(task)"> </task-item>
+					<TaskItem :task="task" v-for="task in tasks" :key="task.id" @complete-task="completeTask(task)" />
 				</ul>
 			</div>
-			<clear-buttons
-				@clear-completed="$emit('clear-completed')"
-				@clear-all-tasks="$emit('clear-all-tasks')"></clear-buttons>
-			<pending-tasks :pendingTasks="countPendingTasks"></pending-tasks>
+			<ClearButtons @clear-completed="$emit('clear-completed')" @clear-all-tasks="$emit('clear-all-tasks')" />
+			<PendingTasks :pendingTasks="countPendingTasks" />
 		</div>
 	</div>
 </template>

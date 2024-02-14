@@ -1,6 +1,6 @@
 <template>
 	<div class="title">
-		<h1>To Do List</h1>
+		<h1><slot></slot></h1>
 	</div>
 </template>
 
